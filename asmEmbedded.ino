@@ -1,8 +1,20 @@
 #include <Arduino.h>
 
+
+// conecciones a los pines del arduino nano:
+
+// D2 -A
+// D3 -B
+// D4 -C
+// D5 -D
+// D7 -DP
+// D8 -E
+// D9 -G  inverti las conecciones de D9 y D10 para que fuese mas facil visualizar las mascaras en el codigo
+// D10 -F 
+
 // Máscaras organizadas para representar los números del 0 al 9
 // Cada número tiene dos máscaras: una para el Puerto D y otra para el Puerto B
-/// DEL 2 AL 5 - BIT2- segmento D /BIT 3 - segmento C/ BIT 4 - segmento B / BIT 5- segmento A
+// Del 2 al 5 - BIT5 - segmento D  / BIT 4 - segmento C / BIT 3 - segmento B  / BIT 2  segmento A
 const uint8_t puertoD_masks[] = {
   0b00111100, // 0 - segmentos A, B, C, D encendidos en D2-D5
   0b00011000, // 1 - segmentos B, C
@@ -12,23 +24,23 @@ const uint8_t puertoD_masks[] = {
   0b00110100, // 5 - segmentos A, C, D, F, G
   0b00110100, // 6 - segmentos A, C, D, E, F, G
   0b00011100, // 7 - segmentos A, B, C
-  0b00111110, // 8 - segmentos A, B, C, D, E, F, G
+  0b00111100, // 8 - segmentos A, B, C, D, E, F, G
   0b00111100  // 9 - segmentos A, B, C, D, F, G
 };
-/// DEL 4 AL 7 - BIT4 pinto decimal (gp) / BIT 5 - segmento F / BIT 6 - segmento G / BIT 7- segmento E
+
+// Del 4 al 7 - BIT3 segmento DP / BIT2 segmento G  / BIT1 segmento F  / BIT 0 segmento E
 const uint8_t puertoB_masks[] = {
-  0b00000101, // 0 - segmentos E, F
+  0b00000011, // 0 - segmentos E, F
   0b00000000, // 1 - no hay segmentos en Puerto B
-  0b00000011, // 2 - segmentos E, G
-  0b00000010, // 3 - segmento G
+  0b00000101, // 2 - segmentos E, G
+  0b00000100, // 3 - segmento F, G
   0b00000110, // 4 - segmentos F, G
-  0b00000110, // 5 - segmentos F, G
+  0b00000110, // 5 - segmentos E, F, G
   0b00000111, // 6 - segmentos E, F, G
-  0b00000100, // 7 -segmento F
-  0b00000111, // 8 - segmentos E, F, G
+  0b00000010, // 7 - segmento F
+  0b00000111, // 8 - segmentos E, F, G, DP apagado
   0b00000110  // 9 - segmentos F, G
 };
-
 
 void setup() {
   // Configurar pines D2-D5 como salida en el Puerto D
