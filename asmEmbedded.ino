@@ -7,10 +7,11 @@
 // D3 -B
 // D4 -C
 // D5 -D
-// D7 -DP
+
 // D8 -E
 // D9 -G  inverti las conecciones de D9 y D10 para que fuese mas facil visualizar las mascaras en el codigo
 // D10 -F 
+// D11 -DP
 
 // Máscaras organizadas para representar los números del 0 al 9
 // Cada número tiene dos máscaras: una para el Puerto D y otra para el Puerto B
@@ -30,7 +31,7 @@ const uint8_t puertoD_masks[] = {
 
 // Del 4 al 7 - BIT3 segmento DP / BIT2 segmento G  / BIT1 segmento F  / BIT 0 segmento E
 const uint8_t puertoB_masks[] = {
-  0b00000011, // 0 - segmentos E, F
+  0b00001011, // 0 - segmentos E, F
   0b00000000, // 1 - no hay segmentos en Puerto B
   0b00000101, // 2 - segmentos E, G
   0b00000100, // 3 - segmento F, G
