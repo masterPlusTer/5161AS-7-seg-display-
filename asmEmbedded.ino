@@ -9,8 +9,8 @@
 // D5 -D
 
 // D8 -E
-// D9 -G  inverti las conecciones de D9 y D10 para que fuese mas facil visualizar las mascaras en el codigo
-// D10 -F 
+// D9 -F
+// D10 -G 
 // D11 -DP
 
 // Máscaras organizadas para representar los números del 0 al 9
